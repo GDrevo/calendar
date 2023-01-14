@@ -1,0 +1,12 @@
+<%= simple_form_for @meeting, data: { controller: 'flatpickr' } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :start_time, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+  <%= f.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
+  <%= f.submit 'Schedule your meeting' %>
+<% end %>
+
+<div class="delete-button">
+  <%= button_to meeting_path(@meeting), method: :delete do %>
+    <p>Delete your meeting</p>
+  <% end %>
+</div>
